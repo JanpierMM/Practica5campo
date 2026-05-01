@@ -20,7 +20,7 @@ public class alumno {
     }
     public alumno(int codigo, String nombre){
         this.codigo = codigo;
-        this.nombre = nombre;
+        this.nombre = nOMBRRE;
         this.edad = 0;
     }
     public void setEdad(int edad){
