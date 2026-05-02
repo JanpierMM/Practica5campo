@@ -24,15 +24,23 @@ public class curso {
         alumnos = new ArrayList<>();
     }
     public void AsignarEstudiante(alumno e){
-        if(!algo(e.GetCodigo()))
-            alumnos.add(e);
-        else
+        if(!algo(e.GetCodigo())){
+            if (e.GetEdad()>0){
+                alumnos.add(e);
+            }
+            else
+                System.out.print("La EDAD debe ser mayor a 0");
+        }else
             System.out.println("Ya registrado");
     }
      public void AsignarEstudiante(int codigo, String Nombre,int edad){
-        if(!algo(codigo))    
+        if(!algo(codigo)){
+            if (edad>0){
             alumnos.add(new alumno(codigo,Nombre,edad));
-        else
+            }
+            else
+                System.out.println("La EDAD debe ser mayor a 0");
+        }else
             System.out.println("ya registrado");
     }
     public boolean algo(int codogo){

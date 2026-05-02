@@ -5,6 +5,7 @@
 package semana5;
 
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -34,25 +35,36 @@ public class Semana5 {
           switch(op){
               
               case 1:
-                  System.out.println("Ingrese el Codigo");
-                  int Codigo = sc.nextInt();
-                  System.out.println("Ingrese el Nombre");
-                  String Nombre = sc.next();
-                  System.out.println("Ingrese su edad");
-                  int edad = sc.nextInt();
-                  alumno p1 = new alumno(Codigo,Nombre,edad);
-                  c.AsignarEstudiante(p1);
+                  try
+                  {
+                      System.out.println("Ingrese el Codigo");
+                        int Codigo = sc.nextInt();
+                      System.out.println("Ingrese el Nombre");
+                        String Nombre = sc.next();
+                      System.out.println("Ingrese su edad");
+                        int edad = sc.nextInt();
+                      alumno p1 = new alumno(Codigo,Nombre,edad);
+                        c.AsignarEstudiante(p1);
+                  }catch(InputMismatchException e){
+                  System.out.println("Error: Rellene bien los campos "+ e);
+                  sc.next();
+                  }
                   break;
               case 2:
                   System.out.println(c.ListadoEstudiantes());
                   break;
               case 3:
+                  try
+                  {
                   System.out.println("Codigo del alumno: ");
                   int CodigoBuscar = sc.nextInt();
                   System.out.println("Ingrese su edad");
                   int edadb = sc.nextInt();
                   boolean rep =c.buscar(CodigoBuscar, edadb);
-                  
+                  }catch(InputMismatchException e){
+                      System.out.println("Error: Rellene bien los campos "+ e);
+                        sc.next();
+                  }
                   break;
               case 4:
                   System.out.println("Saliendo.......");
@@ -61,7 +73,7 @@ public class Semana5 {
                   System.out.println("Ingrese una opcion valida");
                   break;
           }  
-        }while(op!=0);
+        }while(op!=4);
     }
     
 }
